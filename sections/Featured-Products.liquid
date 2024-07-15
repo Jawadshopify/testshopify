@@ -86,10 +86,136 @@
     </div>
   </div>
 
-  
+  <!-- Optional: include Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('add-to-cart-modal');
+      const modalImage = document.getElementById('modal-image');
+      const modalName = document.getElementById('modal-name');
+      const modalPrice = document.getElementById('modal-price');
+      const closeButton = modal.querySelector('.close');
+      const addToCartButton = document.getElementById('add-to-cart'); // Updated button
+
+      let currentProductId = null;
+
+      document.querySelectorAll('.product-image').forEach(image => {
+        image.addEventListener('click', function() {
+          const imgSrc = image.getAttribute('data-product-img');
+          const name = image.getAttribute('data-product-name');
+          const price = image.getAttribute('data-product-price');
+          currentProductId = image.getAttribute('data-product-id'); // Store current product ID
+          modalImage.src = imgSrc; // Set the image source in the modal
+          modalName.textContent = name; // Set the product name in the modal
+          modalPrice.textContent = price; // Set the product price in the modal
+          modal.classList.add('show'); // Show the modal
+        });
+      });
+
+      closeButton.addEventListener('click', function() {
+        modal.classList.remove('show'); // Hide the modal
+      });
+
+      addToCartButton.addEventListener('click', function() {
+        if (currentProductId) {
+          // Implement your logic for adding the item to the cart here
+          // Example: Redirect to cart with product ID
+          window.location.href = /cart/add?id=${currentProductId}; // Example URL
+        } else {
+          alert('Product ID is missing.');
+        }
+      });
+    });
+  </script>
+
+  <div class="container mt-5">
+    <h2>{{ section.settings.section_title }}</h2>
+    {% if section.settings.product_selection %}
+      {% assign product = all_products[section.settings.product_selection] %}
+      {% if product %}
+        <h3>{{ product.title }}</h3>
+        {% if product.featured_image %}
+          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}" class="img-fluid">
+        {% endif %}
+        
+        <form id="product-update-form" class="mt-4">
+          <div class="form-group">
+            <label for="product-title">Product Title</label>
+            <input type="text" class="form-control" id="product-title" value="{{ product.title }}" required>
+          </div>
+          <div class="form-group">
+            <label for="product-description">Product Description</label>
+            <textarea class="form-control" id="product-description" rows="3" required>{{ product.description }}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="product-price">Product Price</label>
+            <input type="number" class="form-control" id="product-price" value="{{ product.variants.first.price }}" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Update Product</button>
+        </form>
+      {% else %}
+        <p>Selected product could not be found.</p>
+      {% endif %}
+    {% else %}
+      <p>Please select a product to manage.</p>
+    {% endif %}
+  </div>
+
+  <script>
+   const express = require('express');
+const bodyParser = require('body-parser');
+const axios = require('axios');
+
+const app = express();
+const port = 3000;
+
+// Replace with your Shopify store credentials
+const SHOPIFY_STORE_URL = 'your-store.myshopify.com';
+const SHOPIFY_API_KEY = 'your-api-key';
+const SHOPIFY_API_PASSWORD = 'your-api-password';
+
+app.use(bodyParser.json());
+
+app.post('/update-product', async (req, res) => {
+  const { productId, title, description, price, variantId } = req.body;
+
+  try {
+    const response = await axios({
+      method: 'PUT',
+      url: https://${SHOPIFY_API_KEY}:${SHOPIFY_API_PASSWORD}@${SHOPIFY_STORE_URL}/admin/api/2024-01/products/${productId}.json,
+      data: {
+        product: {
+          title,
+          body_html: description,
+          variants: [{
+            id: variantId,
+            price
+          }]
+        }
+      },
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error updating product:', error);
+    res.status(500).json({ error: 'Failed to update product' });
+  }
+});
+
+app.listen(port, () => {
+  console.log(Server running at http://localhost:${port});
+
+      });
+    });
+  </script>
+</body>
+</html>
 
 {% schema %}
 {
