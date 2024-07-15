@@ -1,6 +1,48 @@
 {% schema %}
-  {
-    "name": "Featured Products",
-    "settings": []
-  }
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Featured Products"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Product",
+      "type": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slide_img",
+          "label": "Select Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Product URL"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name",
+          "default": "Product Name"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "default": "$0.00"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
 {% endschema %}
