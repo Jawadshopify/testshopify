@@ -57,12 +57,12 @@
   <div class="image-container">
     <img src="{{ section.settings.image | img_url: 'master' }}" alt="Professional Image" />
     
-    
+    <!-- Text view at the top right -->
     <div class="text-view top-right">
       {{ section.settings.text_view_1 }}
     </div>
     
-    
+    <!-- Text view at the center -->
     <div class="text-view center">
       {{ section.settings.text_view_2 }}
     </div>
@@ -70,11 +70,22 @@
     <div class="button-container top-button">
       <a href="{{ section.settings.button_link_1 }}" class="btn btn-primary">
         {{ section.settings.button_text_1 }} 
-        
+        <svg width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M0 8a.5.5 0 0 1 .5-.5h13.086l-4.793-4.793a.5.5 0 0 1 .707-.707l5.5 5.5a.5.5 0 0 1 0 .707l-5.5 5.5a.5.5 0 0 1-.707-.707L13.586 8.5H.5A.5.5 0 0 1 0 8z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="button-container bottom-buttons">
+      <a href="{{ section.settings.button_link_2 }}" class="btn btn-secondary">
+        {{ section.settings.button_text_2 }} 
+        <svg width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15.5 8a.5.5 0 0 1-.5.5H1.414l4.793 4.793a.5.5 0 0 1-.707.707l-5.5-5.5a.5.5 0 0 1 0-.707l5.5-5.5a.5.5 0 0 1 .707.707L1.414 7.5H15a.5.5 0 0 1 .5.5z"/>
+        </svg>
       </a>
     </div>
   </div>
 </div>
+
 
 <style>
   .custom-image-with-buttons {
