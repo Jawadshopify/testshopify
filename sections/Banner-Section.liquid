@@ -42,13 +42,8 @@
       "id": "text_view_2",
       "label": "Text View 2",
       "default": "Center Text"
-    },
-    {
-      "type": "text",
-      "id": "text_view_3",
-      "label": "Text View 3",
-      "default": "Left Text"
     }
+    
   ],
   "presets": [
     {
@@ -73,7 +68,7 @@
       {{ section.settings.text_view_2 }}
     </div>
      <!-- Text view at the left -->
-    <div class="text-view middle-left">
+    <div class="text-view center left">
       {{ section.settings.text_view_3 }}
     </div>
     <div class="button-container top-button">
@@ -146,9 +141,9 @@
     transform: translateX(0); 
     text-align: right; 
   }
-.middle-left {
-    ltop:5%;
-    top: 10px;
+center-left {
+    left:1%;
+    left: 10px;
     transform: translateX(0); 
     text-align: left; 
   }
