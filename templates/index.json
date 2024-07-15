@@ -90,6 +90,50 @@
     },
     "featured_products_86pfVp": {
       "type": "Featured-Products",
+      "blocks": {
+        "image_x9t6g9": {
+          "type": "image",
+          "settings": {
+            "slide_img": "shopify:\/\/shop_images\/young-man-in-bright-fashion_925x_b3b7ebd6-c91f-496a-a516-45403497ea25.jpg",
+            "link": "",
+            "product_name": "Jacket",
+            "price": "$200CAD"
+          }
+        },
+        "image_wiJG8y": {
+          "type": "image",
+          "settings": {
+            "slide_img": "shopify:\/\/shop_images\/casual-fashion-woman_925x_56b56608-f207-45c1-b677-bb5aa26c1c7a.jpg",
+            "link": "",
+            "product_name": "White Jacket",
+            "price": "$200CAD"
+          }
+        },
+        "image_ixtrWG": {
+          "type": "image",
+          "settings": {
+            "slide_img": "shopify:\/\/shop_images\/mens-fall-fashion-jacket_925x_dfe6291e-8e87-4c26-8fd6-986ce67a4b0b.jpg",
+            "link": "",
+            "product_name": "Black Jacket",
+            "price": "$100 CAD"
+          }
+        },
+        "image_Qp47tq": {
+          "type": "image",
+          "settings": {
+            "slide_img": "shopify:\/\/shop_images\/black-bag-over-the-shoulder_925x_4cae5708-5e9e-4e7e-96ec-9649f0c20cd8.jpg",
+            "link": "",
+            "product_name": "Bag",
+            "price": "$500 CAD"
+          }
+        }
+      },
+      "block_order": [
+        "image_x9t6g9",
+        "image_wiJG8y",
+        "image_ixtrWG",
+        "image_Qp47tq"
+      ],
       "settings": {
         "heading": "Featured Products"
       }
