@@ -74,17 +74,18 @@
     </div>
   </div>
 
-  <div id="add-to-cart-modal" class="add-to-cart-modal">
-    <div class="modal-content">
-      <img id="modal-image" src="" alt="Product Image" class="img-fluid mb-3"/>
-      <h5 id="modal-name"></h5>
-      <p id="modal-price"></p>
-      <h2>Product Added to Cart</h2>
-      <p>Your product has been successfully added to the cart.</p>
-      <button class="close btn btn-primary">Close</button>
-      <button id="add-to-cart" class="btn btn-secondary mt-3">View Cart</button> <!-- New button -->
-    </div>
+ <div id="add-to-cart-modal" class="add-to-cart-modal">
+  <div class="modal-content">
+    <img id="modal-image" src="" alt="Product Image" class="img-fluid mb-3"/>
+    <h5 id="modal-name"></h5>
+    <p id="modal-price"></p>
+    <h2>Product Added to Cart</h2>
+    <p>Your product has been successfully added to the cart.</p>
+    <button class="close btn btn-primary">Close</button>
+    <button id="add-to-cart" class="btn btn-secondary mt-3">View Cart</button> <!-- New button -->
   </div>
+</div>
+
 
   <!-- Optional: include Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -93,7 +94,7 @@
 
   <!-- Custom JavaScript -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+   document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('add-to-cart-modal');
   const modalImage = document.getElementById('modal-image');
   const modalName = document.getElementById('modal-name');
