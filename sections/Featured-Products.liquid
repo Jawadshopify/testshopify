@@ -94,42 +94,43 @@
   <!-- Custom JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const modal = document.getElementById('add-to-cart-modal');
-      const modalImage = document.getElementById('modal-image');
-      const modalName = document.getElementById('modal-name');
-      const modalPrice = document.getElementById('modal-price');
-      const closeButton = modal.querySelector('.close');
-      const addToCartButton = document.getElementById('add-to-cart'); // Updated button
+  const modal = document.getElementById('add-to-cart-modal');
+  const modalImage = document.getElementById('modal-image');
+  const modalName = document.getElementById('modal-name');
+  const modalPrice = document.getElementById('modal-price');
+  const closeButton = modal.querySelector('.close');
+  const addToCartButton = document.getElementById('add-to-cart'); // Updated button
 
-      let currentProductId = null;
+  let currentProductId = null;
 
-      document.querySelectorAll('.product-image').forEach(image => {
-        image.addEventListener('click', function() {
-          const imgSrc = image.getAttribute('data-product-img');
-          const name = image.getAttribute('data-product-name');
-          const price = image.getAttribute('data-product-price');
-          currentProductId = image.getAttribute('data-product-id'); // Store current product ID
-          modalImage.src = imgSrc; // Set the image source in the modal
-          modalName.textContent = name; // Set the product name in the modal
-          modalPrice.textContent = price; // Set the product price in the modal
-          modal.classList.add('show'); // Show the modal
-        });
-      });
-
-      closeButton.addEventListener('click', function() {
-        modal.classList.remove('show'); // Hide the modal
-      });
-
-      addToCartButton.addEventListener('click', function() {
-        if (currentProductId) {
-          // Implement your logic for adding the item to the cart here
-          // Example: Redirect to cart with product ID
-          window.location.href = /cart/add?id=${currentProductId}; // Example URL
-        } else {
-          alert('Product ID is missing.');
-        }
-      });
+  document.querySelectorAll('.product-image').forEach(image => {
+    image.addEventListener('click', function() {
+      const imgSrc = image.getAttribute('data-product-img');
+      const name = image.getAttribute('data-product-name');
+      const price = image.getAttribute('data-product-price');
+      currentProductId = image.getAttribute('data-product-id'); // Store current product ID
+      modalImage.src = imgSrc; // Set the image source in the modal
+      modalName.textContent = name; // Set the product name in the modal
+      modalPrice.textContent = price; // Set the product price in the modal
+      modal.classList.add('show'); // Show the modal
     });
+  });
+
+  closeButton.addEventListener('click', function() {
+    modal.classList.remove('show'); // Hide the modal
+  });
+
+  addToCartButton.addEventListener('click', function() {
+    if (currentProductId) {
+      // Implement your logic for adding the item to the cart here
+      // Example: Redirect to cart with product ID
+      window.location.href = `/cart/add?id=${currentProductId}`; // Example URL
+    } else {
+      alert('Product ID is missing.');
+    }
+  });
+});
+
   </script>
 
   <div class="container mt-5">
