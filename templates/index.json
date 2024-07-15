@@ -87,11 +87,18 @@
         "text_view_1": "TISSO VISSION",
         "text_view_2": "Find Gifts Here"
       }
+    },
+    "featured_products_86pfVp": {
+      "type": "Featured-Products",
+      "settings": {
+        "heading": "Featured Products"
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_collection",
-    "banner_section_dd3cVE"
+    "banner_section_dd3cVE",
+    "featured_products_86pfVp"
   ]
 }
